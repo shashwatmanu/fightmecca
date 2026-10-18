@@ -1,26 +1,210 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-base: #050508;
+    --bg-surface: #0a0a10;
+    --bg-surface-elevated: #11111a;
+    --bg-surface-glass: rgba(16, 16, 26, 0.6);
+    --bg-surface-card: rgba(18, 18, 28, 0.7);
+    
+    /* Editorial Crimson & Electric Vermilion */
+    --accent-red: #ff1e42;
+    --accent-red-glow: rgba(255, 30, 66, 0.35);
+    --accent-orange: #ff5722;
+    --accent-gold: #e5a93c;
+    --accent-emerald: #10b981;
+    
+    /* High Fashion / Dark Editorial Typography */
+    --text-white: #ffffff;
+    --text-secondary: #9aa0a6;
+    --text-muted: #5f6368;
+    
+    /* Fine borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-bright: rgba(255, 255, 255, 0.16);
+    --border-accent: rgba(255, 30, 66, 0.3);
+
+    /* Safe Area insets */
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+
+    /* Fight Mecca Motion Engine theme tokens */
+    --fm-bg-card: rgba(18, 18, 28, 0.7);
+    --fm-bg-secondary: rgba(10, 10, 16, 0.8);
+    --fm-border: rgba(255, 255, 255, 0.08);
+    --fm-text-primary: #ffffff;
+    --fm-text-secondary: #9aa0a6;
+    --fm-accent-primary: #ff1e42;
+    --fm-accent-secondary: #ff5722;
+    --fm-success: #10b981;
+    --fm-warning: #e5a93c;
+    --fm-danger: #ef4444;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-white);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding-top: var(--sat);
+    padding-bottom: calc(var(--sab) + 85px);
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Atmospheric Noise & Vignette Backdrop */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 50% 0%, rgba(255, 30, 66, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(255, 87, 34, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 10% 70%, rgba(229, 169, 60, 0.03) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Headings typography styling */
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 800;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glass & Card Surface Tokens */
+.card-glass {
+  background: linear-gradient(135deg, rgba(20, 20, 32, 0.6) 0%, rgba(12, 12, 20, 0.4) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
+
+.card-glass:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.card-hero {
+  background: linear-gradient(135deg, rgba(28, 28, 44, 0.7) 0%, rgba(14, 14, 24, 0.8) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Red Accent Glow Button */
+.btn-combat {
+  background: linear-gradient(135deg, #ff1e42 0%, #e60026 100%);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 12px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 25px rgba(255, 30, 66, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-combat:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 35px rgba(255, 30, 66, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-ghost-combat {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-ghost-combat:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Floating Bottom Navigation Bar */
+.pwa-nav {
+  position: fixed;
+  bottom: calc(14px + var(--sab));
+  left: 14px;
+  right: 14px;
+  max-width: 440px;
+  margin: 0 auto;
+  z-index: 999;
+  background: rgba(12, 12, 18, 0.85);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Clean Form inputs */
+.form-input, .form-select, .form-textarea {
+  background: rgba(10, 10, 16, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 20px rgba(255, 30, 66, 0.25);
+}
+
+/* Pulse animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 30, 66, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 30, 66, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 30, 66, 0); }
+}
+
+.neon-pulse {
+  animation: neonPulse 2s infinite;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
