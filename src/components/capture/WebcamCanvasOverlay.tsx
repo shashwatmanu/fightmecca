@@ -198,8 +198,13 @@ export function WebcamCanvasOverlay({
       setIsLoadingModel(true);
 
       try {
+        const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768;
         const constraints: MediaStreamConstraints = {
-          video: selectedDeviceId ? { deviceId: { exact: selectedDeviceId } } : { width: 640, height: 480 },
+          video: selectedDeviceId 
+            ? { deviceId: { exact: selectedDeviceId } } 
+            : isMobileScreen
+            ? { facingMode: 'user', width: { ideal: 720 }, height: { ideal: 1280 } }
+            : { width: { ideal: 1280 }, height: { ideal: 720 } },
           audio: false,
         };
 
@@ -376,8 +381,8 @@ export function WebcamCanvasOverlay({
         </div>
       )}
 
-      {/* Video Viewport Container */}
-      <div className="relative w-full aspect-video bg-[var(--fm-bg-secondary)] rounded-lg overflow-hidden border border-[var(--fm-border)] flex items-center justify-center">
+      {/* Video Viewport Container: Portrait on Mobile, Landscape on Desktop */}
+      <div className="relative w-full aspect-[3/4] sm:aspect-video bg-[var(--fm-bg-secondary)] rounded-2xl overflow-hidden border border-[var(--fm-border)] flex items-center justify-center">
         {/* Loading Overlay */}
         {isLoadingModel && (
           <div className="absolute inset-0 bg-black/60 z-20 flex flex-col items-center justify-center gap-2">

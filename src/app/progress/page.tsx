@@ -59,7 +59,7 @@ export default function ProgressPage() {
           <div className="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden border border-white/10">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#ff1e42] bg-[#ff1e42]/10 px-2.5 py-1 rounded-full border border-[#ff1e42]/20">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#ff5722] bg-[#ff5722]/10 px-2.5 py-1 rounded-full border border-[#ff5722]/20">
                   Sensei Command
                 </span>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white font-heading mt-2">
@@ -72,7 +72,7 @@ export default function ProgressPage() {
               <div className="flex items-center gap-3">
                 <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-2xl text-center">
                   <span className="text-[10px] text-slate-400 font-bold uppercase block">Pending Reviews</span>
-                  <span className="text-xl font-black text-[#ff1e42]">{reviewQueue.length}</span>
+                  <span className="text-xl font-black text-[#ff5722]">{reviewQueue.length}</span>
                 </div>
               </div>
             </div>

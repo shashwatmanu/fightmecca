@@ -8,11 +8,11 @@
     --bg-surface-glass: rgba(16, 16, 26, 0.6);
     --bg-surface-card: rgba(18, 18, 28, 0.7);
     
-    /* Editorial Crimson & Electric Vermilion */
-    --accent-red: #ff1e42;
-    --accent-red-glow: rgba(255, 30, 66, 0.35);
-    --accent-orange: #ff5722;
-    --accent-gold: #e5a93c;
+    /* Editorial Combat Flame — Vibrant Neon Orange */
+    --accent-red: #ff5722;
+    --accent-red-glow: rgba(255, 87, 34, 0.35);
+    --accent-orange: #ff7043;
+    --accent-gold: #ffb300;
     --accent-emerald: #10b981;
     
     /* High Fashion / Dark Editorial Typography */
@@ -23,7 +23,7 @@
     /* Fine borders */
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-bright: rgba(255, 255, 255, 0.16);
-    --border-accent: rgba(255, 30, 66, 0.3);
+    --border-accent: rgba(255, 87, 34, 0.3);
 
     /* Safe Area insets */
     --sat: env(safe-area-inset-top, 0px);
@@ -35,10 +35,10 @@
     --fm-border: rgba(255, 255, 255, 0.08);
     --fm-text-primary: #ffffff;
     --fm-text-secondary: #9aa0a6;
-    --fm-accent-primary: #ff1e42;
-    --fm-accent-secondary: #ff5722;
+    --fm-accent-primary: #ff5722;
+    --fm-accent-secondary: #ff7043;
     --fm-success: #10b981;
-    --fm-warning: #e5a93c;
+    --fm-warning: #ffb300;
     --fm-danger: #ef4444;
   }
 
@@ -53,8 +53,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    padding-top: var(--sat);
-    padding-bottom: calc(var(--sab) + 85px);
+    padding-bottom: calc(var(--sab) + 90px);
   }
 
   @media (min-width: 1024px) {
@@ -159,21 +158,26 @@
   transform: translateY(-1px);
 }
 
-/* Floating Bottom Navigation Bar */
+/* Fixed Mobile Bottom Navigation Bar */
 .pwa-nav {
   position: fixed;
-  bottom: calc(14px + var(--sab));
-  left: 14px;
-  right: 14px;
-  max-width: 440px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
   margin: 0 auto;
   z-index: 999;
-  background: rgba(12, 12, 18, 0.85);
+  background: rgba(8, 8, 14, 0.95);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Clean Form inputs */

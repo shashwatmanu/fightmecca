@@ -32,7 +32,7 @@ export default function TrainDashboardPage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-white/[0.06]">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-black tracking-widest uppercase text-[#ff1e42] bg-[#ff1e42]/10 px-2.5 py-0.5 rounded-full border border-[#ff1e42]/20">
+              <span className="text-[10px] font-black tracking-widest uppercase text-[#ff5722] bg-[#ff5722]/10 px-2.5 py-0.5 rounded-full border border-[#ff5722]/20">
                 {currentRole === 'student' && 'Athlete Training Ground'}
                 {currentRole === 'coach' && 'Sensei Command Center'}
                 {currentRole === 'admin' && 'Federation Director'}
@@ -62,7 +62,7 @@ export default function TrainDashboardPage() {
         {/* Hero Section: Editorial Continue Lesson Card */}
         <div className="card-hero p-6 sm:p-10 relative overflow-hidden group">
           {/* Subtle Accent Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#ff1e42]/15 via-transparent to-transparent rounded-full pointer-events-none -mr-20 -mt-20 blur-3xl" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#ff5722]/15 via-transparent to-transparent rounded-full pointer-events-none -mr-20 -mt-20 blur-3xl" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Left Content */}
@@ -77,7 +77,7 @@ export default function TrainDashboardPage() {
               </div>
 
               <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#ff1e42] transition-colors font-heading leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#ff5722] transition-colors font-heading leading-tight">
                   {activeCourse.title}
                 </h2>
                 <p className="text-slate-300 text-sm mt-2 leading-relaxed">
@@ -89,11 +89,11 @@ export default function TrainDashboardPage() {
               <div className="space-y-2 max-w-md pt-1">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-slate-400">Curriculum Progress</span>
-                  <span className="text-[#ff1e42] font-black">{activeCourse.progressPercent}%</span>
+                  <span className="text-[#ff5722] font-black">{activeCourse.progressPercent}%</span>
                 </div>
                 <div className="w-full h-1.5 bg-black/50 rounded-full overflow-hidden p-0">
                   <div
-                    className="h-full bg-gradient-to-r from-[#ff1e42] to-[#ff5722] rounded-full transition-all duration-700"
+                    className="h-full bg-gradient-to-r from-[#ff5722] to-[#ff9800] rounded-full transition-all duration-700"
                     style={{ width: `${activeCourse.progressPercent}%` }}
                   />
                 </div>

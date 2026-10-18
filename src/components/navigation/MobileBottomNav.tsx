@@ -61,7 +61,7 @@ export const MobileBottomNav: React.FC = () => {
     : studentNavItems;
 
   return (
-    <nav className="pwa-nav lg:hidden px-2 py-1.5">
+    <nav className="pwa-nav lg:hidden px-3 pt-2">
       <div className="flex items-center justify-around relative">
         {navItems.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/train' && pathname.startsWith(item.href));
@@ -72,19 +72,19 @@ export const MobileBottomNav: React.FC = () => {
               key={item.label}
               href={item.href}
               className={`flex flex-col items-center justify-center flex-1 py-1 transition-all duration-300 relative ${
-                isActive ? 'text-[#ff1e42]' : 'text-slate-400 hover:text-white'
+                isActive ? 'text-[#ff5722]' : 'text-slate-400 hover:text-white'
               }`}
             >
               <div className="relative">
                 <div
                   className={`p-1.5 rounded-full transition-all duration-300 ${
-                    isActive ? 'scale-110 bg-[#ff1e42]/10 text-[#ff1e42]' : ''
+                    isActive ? 'scale-110 bg-[#ff5722]/15 text-[#ff5722]' : ''
                   }`}
                 >
                   <Icon className="w-5 h-5 stroke-[2]" />
                 </div>
                 {Boolean(item.badge) && (
-                  <span className="absolute -top-1 -right-1 bg-[#ff1e42] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-[#08080d]">
+                  <span className="absolute -top-1 -right-1 bg-[#ff5722] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-[#08080d]">
                     {item.badge}
                   </span>
                 )}

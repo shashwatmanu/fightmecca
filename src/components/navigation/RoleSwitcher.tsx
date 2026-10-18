@@ -25,7 +25,7 @@ export const RoleSwitcher: React.FC = () => {
             onClick={() => setRole(r.role)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-300 ${
               isActive
-                ? 'bg-[#ff1e42] text-white shadow-lg shadow-[#ff1e42]/30 scale-100'
+                ? 'bg-[#ff5722] text-white shadow-lg shadow-[#ff5722]/30 scale-100'
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >

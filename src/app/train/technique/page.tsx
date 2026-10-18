@@ -517,7 +517,7 @@ export default function TechniqueTrainPage() {
       {/* Main Viewport & Capture Controls Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-w-0">
         <div className="lg:col-span-8 space-y-4 min-w-0">
-          <div className="relative rounded-xl overflow-hidden border border-[var(--fm-border)] bg-black shadow-2xl min-h-[440px] flex items-center justify-center">
+          <div className="relative rounded-2xl overflow-hidden border border-[var(--fm-border)] bg-black shadow-2xl flex items-center justify-center">
             <WebcamCanvasOverlay
               isActive={isCameraActive}
               onStartCamera={handleStartCamera}
